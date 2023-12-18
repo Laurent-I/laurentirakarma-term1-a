@@ -1,4 +1,8 @@
 package rca.devops.exam.v1.exception;
 
-public class InvalidOperationException {
+// InvalidOperationException.java
+public class InvalidOperationException extends Exception {
+    public InvalidOperationException(String message) {
+        super(message);
+    }
 }
