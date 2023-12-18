@@ -22,8 +22,6 @@ To clone the project, follow these steps:
 git clone https://github.com/Laurent-I/laurentirakarama-term1-a.git
 ```
 
-Replace `your-username` and `your-project-name` with your GitHub username and the name of your project.
-
 ## Setting Up the Project
 
 After cloning the project, you need to import it into your IDE. If you're using IntelliJ IDEA, follow these steps:

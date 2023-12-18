@@ -99,4 +99,48 @@ public class MathControllerEndToEndTest {
                         .content("{\"operand1\":5, \"operand2\":3, \"operation\":\"^\"}"))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    public void testDoMathEndpointAdditionWithNegativeNumbers() throws Exception {
+        when(mathOperator.doMath(-5, -3, "+")).thenReturn(-8.0);
+
+        mockMvc.perform(post("/doMath")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"operand1\":-5, \"operand2\":-3, \"operation\":\"+\"}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.calcResponse", is(-8.0)));
+    }
+
+    @Test
+    public void testDoMathEndpointSubtractionWithNegativeNumbers() throws Exception {
+        when(mathOperator.doMath(-5, -3, "-")).thenReturn(-2.0);
+
+        mockMvc.perform(post("/doMath")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"operand1\":-5, \"operand2\":-3, \"operation\":\"-\"}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.calcResponse", is(-2.0)));
+    }
+
+    @Test
+    public void testDoMathEndpointMultiplicationWithNegativeNumbers() throws Exception {
+        when(mathOperator.doMath(-5, -3, "*")).thenReturn(15.0);
+
+        mockMvc.perform(post("/doMath")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"operand1\":-5, \"operand2\":-3, \"operation\":\"*\"}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.calcResponse", is(15.0)));
+    }
+
+    @Test
+    public void testDoMathEndpointDivisionWithNegativeNumbers() throws Exception {
+        when(mathOperator.doMath(-6, -3, "/")).thenReturn(2.0);
+
+        mockMvc.perform(post("/doMath")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"operand1\":-6, \"operand2\":-3, \"operation\":\"/\"}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.calcResponse", is(2.0)));
+    }
 }

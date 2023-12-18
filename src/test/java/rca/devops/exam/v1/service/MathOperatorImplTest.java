@@ -54,4 +54,29 @@ public class MathOperatorImplTest {
     public void testDoMathUnknownOperation() {
         assertThrows(RuntimeException.class, () -> mathOperator.doMath(5, 3, "^"));
     }
+
+
+    @Test
+    public void testDoMathAdditionWithNegativeNumbers() throws InvalidOperationException {
+        double result = mathOperator.doMath(-5, -3, "+");
+        assertEquals(-8, result);
+    }
+
+    @Test
+    public void testDoMathSubtractionWithNegativeNumbers() throws InvalidOperationException {
+        double result = mathOperator.doMath(-5, -3, "-");
+        assertEquals(-2, result);
+    }
+
+    @Test
+    public void testDoMathMultiplicationWithNegativeNumbers() throws InvalidOperationException {
+        double result = mathOperator.doMath(-5, -3, "*");
+        assertEquals(15, result);
+    }
+
+    @Test
+    public void testDoMathDivisionWithNegativeNumbers() throws InvalidOperationException {
+        double result = mathOperator.doMath(-6, -3, "/");
+        assertEquals(2, result);
+    }
 }
