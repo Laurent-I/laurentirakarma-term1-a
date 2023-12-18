@@ -8,5 +8,12 @@ public class DoMathResponse {
         this.calcResponse = calcResponse;
     }
 
-    // getters and setters
+    public double getCalcResponse() {
+        return calcResponse;
+    }
+
+    public void setCalcResponse(double calcResponse) {
+        this.calcResponse = calcResponse;
+    }
+
 }
