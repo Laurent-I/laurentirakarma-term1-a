@@ -6,6 +6,15 @@ public class DoMathRequest {
     private double operand2;
     private String operation;
 
+    // constructors
+
+    public DoMathRequest(double operand1, double operand2, String operation) {
+        this.operand1 = operand1;
+        this.operand2 = operand2;
+        this.operation = operation;
+    }
+
+
     // getters and setters
 
     public double getOperand1() {
